@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.cedric.myfirstandroidapp.myprofile.MyProfile;
+
 
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MyProfile profile = new MyProfile( "Cedric", 29 );
         setContentView(R.layout.activity_main);
     }
 
