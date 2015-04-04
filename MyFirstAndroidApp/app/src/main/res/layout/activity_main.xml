@@ -7,14 +7,32 @@
 
     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text" />
+        android:id="@+id/text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send message"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
+        android:text="@string/profile_create_title"
+        android:id="@+id/goto_create_profile_btn"
+        android:layout_below="@+id/text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_goto_profile_list"
+        android:id="@+id/button_goto_profiles_list"
+        android:layout_below="@+id/goto_create_profile_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" />
 
 </RelativeLayout>

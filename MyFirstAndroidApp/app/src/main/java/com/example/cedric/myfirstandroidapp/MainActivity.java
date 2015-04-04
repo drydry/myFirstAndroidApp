@@ -1,9 +1,15 @@
 package com.example.cedric.myfirstandroidapp;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.cedric.myfirstandroidapp.activity.profile.CreateProfileActivity;
+import com.example.cedric.myfirstandroidapp.activity.profile.ListProfilesActivity;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -11,7 +17,38 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        final Button gotoCreateProfileBtn = (Button) findViewById(R.id.goto_create_profile_btn);
+        gotoCreateProfileBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        final Button gotoProfilesListBtn = (Button) findViewById(R.id.button_goto_profiles_list);
+        gotoProfilesListBtn .setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                Intent intent = new Intent(MainActivity.this, ListProfilesActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        // Set a new profile
+        /*Profile profile = new Profile( "Cedric", 29 );
+
+        // Get the editText fields
+        EditText nameText = (EditText) findViewById(R.id.profileName);
+        EditText ageText = (EditText) findViewById(R.id.profileAge);
+
+        // Set profile values into the editText fields
+        nameText.setText(profile.getName(), BufferType.EDITABLE);
+        ageText.setText( String.valueOf(profile.getAge()) , BufferType.EDITABLE);
+        */
     }
 
 
