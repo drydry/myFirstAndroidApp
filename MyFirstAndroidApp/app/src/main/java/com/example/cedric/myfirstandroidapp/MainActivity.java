@@ -1,6 +1,5 @@
 package com.example.cedric.myfirstandroidapp;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,14 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.cedric.myfirstandroidapp.database.model.Profile;
-import com.example.cedric.myfirstandroidapp.myprofile.CreateProfileActivity;
-import com.example.cedric.myfirstandroidapp.myprofile.ListProfilesActivity;
-
-import static android.widget.TextView.BufferType;
+import com.example.cedric.myfirstandroidapp.activity.profile.CreateProfileActivity;
+import com.example.cedric.myfirstandroidapp.activity.profile.ListProfilesActivity;
 
 
 public class MainActivity extends ActionBarActivity {

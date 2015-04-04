@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".myprofile.CreateProfileActivity"
+            android:name=".activity.profile.CreateProfileActivity"
             android:label="@string/title_activity_create_profile" >
         </activity>
         <activity
-            android:name=".myprofile.ListProfilesActivity"
+            android:name=".activity.profile.ListProfilesActivity"
             android:label="@string/title_activity_list_profiles" >
         </activity>
     </application>
