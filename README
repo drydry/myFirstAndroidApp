@@ -1,1 +1,6 @@
 This is my first Android APP on Android Studio, on Ubuntu.
+The goal is to create a simple Android APP following some good concepts of programming (MVC to isolate database access directly from the activity), learning Android development, Android Studio EDI.
+
+As of Today, the app allows you to create a Profile (name, age) and to display all profiles.
+The database is a local Mysqlite.
+This app is compiled for Android 4.4 devices and superior.
