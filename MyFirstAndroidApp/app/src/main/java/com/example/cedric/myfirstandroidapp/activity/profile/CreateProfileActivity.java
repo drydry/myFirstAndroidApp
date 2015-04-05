@@ -1,22 +1,39 @@
 package com.example.cedric.myfirstandroidapp.activity.profile;
 
 import android.content.Context;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
 import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
+import com.example.cedric.myfirstandroidapp.database.model.Gender;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class CreateProfileActivity extends ActionBarActivity {
+    // Context
+    private Context context;
     // Profiles controller
     private ProfilesController profilesController;
+    // Name field
+    private EditText nameField;
+    // Age field
+    private EditText ageField;
+    // Gender list
+    private RadioGroup genderGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +43,13 @@ public class CreateProfileActivity extends ActionBarActivity {
         // Initialization of the profiles controller
         profilesController = new ProfilesController(CreateProfileActivity.this);
 
+        // Get the context for Toasts
+        context = getApplicationContext();
+
+        // Get the fields
+        nameField = (EditText) findViewById(R.id.new_profile_name);
+        ageField = (EditText) findViewById(R.id.new_profile_age);
+        genderGroup = (RadioGroup) findViewById(R.id.genderRadioGroup);
 
 
         final Button saveProfileBtn = (Button) findViewById(R.id.save_profile);
@@ -33,26 +57,28 @@ public class CreateProfileActivity extends ActionBarActivity {
             public void onClick(View v) {
                 // Perform action on click
 
-                // Get the context for Toasts
-                Context context = getApplicationContext();
                 int duration = Toast.LENGTH_SHORT;
 
-                // Get the fields
-                EditText nameText = (EditText) findViewById(R.id.new_profile_name);
-                EditText ageText = (EditText) findViewById(R.id.new_profile_age);
-
                 // Checks if the name and the age are filled
-                String name = nameText.getText().toString();
-                String age = ageText.getText().toString();
+                String name = nameField.getText().toString();
+                String age = ageField.getText().toString();
+                String gender = "";
+
+                int checkedId = genderGroup.getCheckedRadioButtonId();
+
+                if(checkedId != -1){
+                    RadioButton selectedGender = (RadioButton) genderGroup.findViewById(checkedId);
+                    gender = selectedGender.getText().toString();
+                }
 
                 // Displays error message if at least one of them is not filled
-                if( name.equals("") || age.equals("") ){
-                    CharSequence text = "Please fill the name/age!";
+                if( gender.equals("") || name.equals("") || age.equals("") ){
+                    CharSequence text = "Please define all fields";
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 } else {
                     // Save the profile
-                    Profile profile = new Profile(name, Integer.parseInt(age));
+                    Profile profile = new Profile(name, Integer.parseInt(age), gender);
 
                     profilesController.save(profile);
 
@@ -60,8 +86,6 @@ public class CreateProfileActivity extends ActionBarActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
-
-
             }
         });
     }

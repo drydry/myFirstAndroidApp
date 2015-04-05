@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.cedric.myfirstandroidapp.database.model.Gender;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
 import java.util.LinkedList;
@@ -19,11 +20,13 @@ public class ProfilesController extends AbstractController<Profile> {
     // Table name
     private static final String TABLE_PROFILES = "profiles";
     // Columns names
-    private static final String KEY_ID   = "id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_AGE  = "age";
+    private static final String KEY_ID      = "id";
+    private static final String KEY_NAME    = "name";
+    private static final String KEY_AGE     = "age";
+    private static final String KEY_GENDER  = "gender";
+
     // Columns
-    private static final String[] COLUMNS = {KEY_ID,KEY_NAME,KEY_AGE};
+    private static final String[] COLUMNS = {KEY_ID, KEY_NAME, KEY_AGE, KEY_GENDER};
 
     public ProfilesController(Context context) {
         super(context);
@@ -35,7 +38,8 @@ public class ProfilesController extends AbstractController<Profile> {
         String CREATE_PROFILE_TABLE = "CREATE TABLE " + TABLE_PROFILES + " ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, "+
-                "age INTEGER )";
+                "age INTEGER, "+
+                "gender TEXT )";
 
         // create books table
         db.execSQL(CREATE_PROFILE_TABLE);
@@ -70,6 +74,7 @@ public class ProfilesController extends AbstractController<Profile> {
                 profile.setId(Integer.parseInt(cursor.getString(0)));
                 profile.setName(cursor.getString(1));
                 profile.setAge(cursor.getInt(2));
+                profile.setGender(cursor.getString(3));
 
                 // Add profile to profiles
                 profiles.add(profile);
@@ -94,6 +99,7 @@ public class ProfilesController extends AbstractController<Profile> {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, profile.getName()); // get name
         values.put(KEY_AGE, profile.getAge()); // get age
+        values.put(KEY_GENDER, profile.getGender()); // get gender
 
         // 3. insert
         db.insert(TABLE_PROFILES, // table
@@ -131,6 +137,7 @@ public class ProfilesController extends AbstractController<Profile> {
         profile.setId(Integer.parseInt(cursor.getString(0)));
         profile.setName(cursor.getString(1));
         profile.setAge(cursor.getInt(2));
+        profile.setGender(cursor.getString(3));
 
         //log
         Log.d("getProfile(" + id + ")", profile.toString());
@@ -149,6 +156,7 @@ public class ProfilesController extends AbstractController<Profile> {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, profile.getName()); // get name
         values.put(KEY_AGE, profile.getAge()); // get age
+        values.put(KEY_GENDER, profile.getGender()); // get gender
 
         // 3. updating row
         int i = db.update(TABLE_PROFILES, //table

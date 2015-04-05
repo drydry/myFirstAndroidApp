@@ -37,18 +37,6 @@ public class MainActivity extends ActionBarActivity {
                 MainActivity.this.startActivity(intent);
             }
         });
-
-        // Set a new profile
-        /*Profile profile = new Profile( "Cedric", 29 );
-
-        // Get the editText fields
-        EditText nameText = (EditText) findViewById(R.id.profileName);
-        EditText ageText = (EditText) findViewById(R.id.profileAge);
-
-        // Set profile values into the editText fields
-        nameText.setText(profile.getName(), BufferType.EDITABLE);
-        ageText.setText( String.valueOf(profile.getAge()) , BufferType.EDITABLE);
-        */
     }
 
 

@@ -8,12 +8,14 @@ public final class Profile implements Model {
     private int id;
     private String name;
     private int age;
+    private String gender;
 
     public Profile(){}
 
-    public Profile(String name, int age) {
+    public Profile(String name, int age, String gender) {
         this.name = name;
         this.age = age;
+        this.gender = gender;
     }
 
     public int getId() {
@@ -40,8 +42,12 @@ public final class Profile implements Model {
         this.age = age;
     }
 
+    public String getGender() { return gender; }
+
+    public void setGender(String gender) { this.gender = toString(); }
+
     @Override
     public String toString() {
-        return "Profile [id=" + id + ", name=" + name + ", age=" + age + "]";
+        return "Profile [id=" + id + ", name=" + name + ", age=" + age + "gender=" + gender +"]";
     }
 }

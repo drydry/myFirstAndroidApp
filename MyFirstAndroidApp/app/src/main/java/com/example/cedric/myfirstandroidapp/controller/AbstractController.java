@@ -12,7 +12,7 @@ import com.example.cedric.myfirstandroidapp.database.model.Model;
 public abstract class AbstractController<Model> extends SQLiteOpenHelper  implements Controllable<Model> {
 
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     // Database Name
     private static final String DATABASE_NAME = "MyDB";
 
