@@ -11,4 +11,6 @@
     <string name="btn_goto_profile_list">See all profiles</string>
     <string name="title_activity_list_profiles">ListProfilesActivity</string>
     <string name="title_list_profiles">Profiles list</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
 </resources>
