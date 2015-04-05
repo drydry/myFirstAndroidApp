@@ -6,7 +6,7 @@ This is just an Android APP I develop, for fun.
 * create a very simple Android APP
 * use good concepts of programming (design patterns)
 * define an architecture to simplify interactions between activities, model, controllers
-* having fun with Github, Android Studion and Ubuntu
+* having fun with Github, Android Studio and Ubuntu
 
 ###As of Today, the app allows you to manage profiles :
 * a profile is composed by a name, age and gender
