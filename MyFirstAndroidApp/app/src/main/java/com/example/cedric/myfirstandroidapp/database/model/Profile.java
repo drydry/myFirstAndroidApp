@@ -44,7 +44,7 @@ public final class Profile implements Model {
 
     public String getGender() { return gender; }
 
-    public void setGender(String gender) { this.gender = toString(); }
+    public void setGender(String gender) { this.gender = gender; }
 
     @Override
     public String toString() {
