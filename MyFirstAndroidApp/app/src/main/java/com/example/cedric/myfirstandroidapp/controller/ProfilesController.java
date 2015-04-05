@@ -12,10 +12,11 @@ public class ProfilesController extends AbstractController {
     @Override
     public void index() {
 
+
     }
 
     @Override
-    public void save(Model model) {
+    public void save(Profile profile) {
 
     }
 
