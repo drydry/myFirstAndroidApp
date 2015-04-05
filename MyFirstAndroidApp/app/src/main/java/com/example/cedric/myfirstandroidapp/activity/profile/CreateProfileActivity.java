@@ -11,15 +11,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
+import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
 import com.example.cedric.myfirstandroidapp.database.MySQLiteHelper;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
 public class CreateProfileActivity extends ActionBarActivity {
+    // Profiles controller
+    private ProfilesController profilesController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
+
+        // Initialization of the profiles controller
+        profilesController = new ProfilesController(CreateProfileActivity.this);
 
 
 
@@ -53,21 +59,13 @@ public class CreateProfileActivity extends ActionBarActivity {
                      * CRUD Operations
                      * */
                     // add Profile
-                    Profile profile = db.addProfile(new Profile( name, Integer.parseInt(age )));
+                    Profile profile = new Profile(name, Integer.parseInt(age));
+
+                    profilesController.save(profile);
 
                     CharSequence text = "Profile created : " + profile.toString();
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-
-
-                    // get all books
-                    //List<Book> list = db.getAllBooks();
-
-                    // delete one book
-                    //db.deleteBook(list.get(0));
-
-                    // get all books
-                    //db.getAllBooks();
                 }
 
 

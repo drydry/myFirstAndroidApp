@@ -1,17 +1,15 @@
 package com.example.cedric.myfirstandroidapp.controller;
 
-import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.cedric.myfirstandroidapp.database.model.Model;
+import java.util.List;
 
 /**
  * Created by cedric on 4/4/15.
  */
-public interface Controllable {
+public interface Controllable<Model> {
 
-    void index();
-    void save(Model model);
-    void get(Model model);
-    void update(Model model);
+    List<Model> index();
+    Model save(Model model);
+    Model get(int id);
+    Model update(Model model);
     void delete(Model model);
 }

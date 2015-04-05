@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
+import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
 import com.example.cedric.myfirstandroidapp.database.MySQLiteHelper;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
@@ -15,14 +16,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ListProfilesActivity extends ActionBarActivity {
+    // Profiles controller
+    private ProfilesController profilesController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_profiles);
 
-        MySQLiteHelper db = new MySQLiteHelper(ListProfilesActivity.this);
-        List<Profile> profiles = db.getAllBooks();
+        // Initialization of the profiles controller
+        this.profilesController = new ProfilesController(ListProfilesActivity.this);
+
+        List<Profile> profiles = profilesController.index();
 
         String newline = System.getProperty("line.separator");
         Context context = getApplicationContext();
