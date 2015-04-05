@@ -1,27 +1,15 @@
-<h1>This is my first Android APP on Android Studio, on Ubuntu.</h1>
+This is my first Android APP on Android Studio, on Ubuntu.
 
-<h2>The goals are :</h2>
+The goals are :
 * create a very simple Android APP
 * use good concepts of programming (design patterns)
 * define an architecture to simplify interactions between activities, model, controllers
 * having fun with Github, Android Studion and Ubuntu
 
-<h2>As of Today, the app allows you to manage profiles :</h2>
+As of Today, the app allows you to manage profiles :
 * a profile is composed by a name and an age
 * you can create a profile
-* you can list all profiles.
+* you can list all profiles
+* more features coming soon.
 
-More features coming soon.
-
-<h2>Screenshots</h2>
-
-<h3>#Main activity</h3>
-![main_activity](https://raw.githubusercontent.com/drydry/myFirstAndroidApp/master/Screenshots/main-activity.png)
-
-<h3>Create profile</h3>
-![create_profile](https://raw.githubusercontent.com/drydry/myFirstAndroidApp/master/Screenshots/profile-create.png)
-
-<h3>Profiles list</h3>
-![profile_list](https://raw.githubusercontent.com/drydry/myFirstAndroidApp/master/Screenshots/profile-list.png)
-
-Enjoy!  
+Enjoy! 
