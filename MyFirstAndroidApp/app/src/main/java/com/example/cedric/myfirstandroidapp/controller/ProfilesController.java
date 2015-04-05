@@ -16,7 +16,7 @@ public class ProfilesController extends AbstractController {
     }
 
     @Override
-    public void save(Profile profile) {
+    public void save(Model profile) {
 
     }
 

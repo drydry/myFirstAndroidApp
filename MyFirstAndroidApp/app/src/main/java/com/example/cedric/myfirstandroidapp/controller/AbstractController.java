@@ -3,7 +3,7 @@ package com.example.cedric.myfirstandroidapp.controller;
 /**
  * Created by cedric on 4/4/15.
  */
-public abstract class AbstractController<> implements Controllable {
+public abstract class AbstractController implements Controllable {
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
