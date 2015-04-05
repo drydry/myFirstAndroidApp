@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
 import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
-import com.example.cedric.myfirstandroidapp.database.MySQLiteHelper;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
 import java.util.Iterator;

@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
 import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
-import com.example.cedric.myfirstandroidapp.database.MySQLiteHelper;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
 public class CreateProfileActivity extends ActionBarActivity {
@@ -53,12 +52,6 @@ public class CreateProfileActivity extends ActionBarActivity {
                     toast.show();
                 } else {
                     // Save the profile
-                    MySQLiteHelper db = new MySQLiteHelper(CreateProfileActivity.this);
-
-                    /**
-                     * CRUD Operations
-                     * */
-                    // add Profile
                     Profile profile = new Profile(name, Integer.parseInt(age));
 
                     profilesController.save(profile);
