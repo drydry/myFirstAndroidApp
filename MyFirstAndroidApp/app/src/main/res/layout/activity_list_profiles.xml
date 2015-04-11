@@ -12,14 +12,13 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <GridView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gridViewProfilesList"
+        android:id="@+id/listView"
         android:layout_below="@+id/textView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="71dp"
-        android:numColumns="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
         android:choiceMode="none" />
 
 </RelativeLayout>
