@@ -1,22 +1,27 @@
 package com.example.cedric.myfirstandroidapp.activity.profile;
 
-import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.cedric.myfirstandroidapp.R;
 import com.example.cedric.myfirstandroidapp.controller.ProfilesController;
 import com.example.cedric.myfirstandroidapp.database.model.Profile;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class ListProfilesActivity extends ActionBarActivity {
     // Profiles controller
     private ProfilesController profilesController;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +29,41 @@ public class ListProfilesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_list_profiles);
 
         // Initialization of the profiles controller
-        this.profilesController = new ProfilesController(ListProfilesActivity.this);
+        profilesController = new ProfilesController(ListProfilesActivity.this);
+
+        listView = (ListView) findViewById(R.id.listView);
 
         List<Profile> profiles = profilesController.index();
+        ArrayList<String> names = Profile.getNames(profiles);
 
-        String newline = System.getProperty("line.separator");
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_SHORT;
-        String text = "Profiles: " + newline ;
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, names );
 
-        for(Iterator<Profile> i = profiles.iterator(); i.hasNext(); ) {
-            Profile profile = i.next();
-            text += profile.toString() + newline;
-        }
+        listView.setAdapter(adapter);
 
-        profiles.toString();
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+
+        // ListView Item Click Listener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+
+                // ListView Clicked item value
+                String  name = (String) listView.getItemAtPosition(position);
+
+                // Show Alert
+                Toast.makeText(getApplicationContext(),
+                        "Position :" + itemPosition + "  ListItem : " + name, Toast.LENGTH_LONG)
+                        .show();
+
+            }
+
+        });
+
 
     }
 

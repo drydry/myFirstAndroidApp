@@ -1,5 +1,8 @@
 package com.example.cedric.myfirstandroidapp.database.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by cedric on 4/4/15.
  */
@@ -45,6 +48,14 @@ public final class Profile implements Model {
     public String getGender() { return gender; }
 
     public void setGender(String gender) { this.gender = gender; }
+
+    public final static ArrayList<String> getNames( List<Profile> profiles ){
+        ArrayList<String> names = new ArrayList<String>();
+        for( Profile profile : profiles ){
+            names.add(profile.name);
+        }
+        return names;
+    }
 
     @Override
     public String toString() {
